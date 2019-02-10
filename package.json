@@ -1,6 +1,6 @@
 {
   "name": "love-typescript-definitions",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "description": "![Usage GIF](https://media.giphy.com/media/8rEiqcM9BldxRmSMgW/giphy.gif)",
   "scripts": {
     "init": "git submodule update --init",
@@ -22,5 +22,12 @@
   "devDependencies": {
     "tslint": "^5.12.1",
     "typescript-to-lua": "^0.14.0"
-  }
+  },
+  "keywords": [
+    "typescripttolua",
+    "love2d",
+    "lua",
+    "typescript",
+    "definitions"
+  ]
 }
