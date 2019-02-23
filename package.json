@@ -3,11 +3,7 @@
   "version": "0.4.2",
   "description": "![Usage GIF](https://media.giphy.com/media/8rEiqcM9BldxRmSMgW/giphy.gif)",
   "scripts": {
-    "init": "git submodule update --init",
-    "love-api-definition-generator": "npm run build-love-api-definition-generator && npm run run-love-api-definition-generator",
-    "build-love-api-definition-generator": "moonc love-api-definition-generator/*.moon",
-    "run-love-api-definition-generator": "lua love-api-definition-generator/tots.lua > include/love.d.ts",
-    "test": "tstl -p test"
+    "test": "tstl -p ."
   },
   "repository": {
     "type": "git",
@@ -20,8 +16,8 @@
   },
   "homepage": "https://github.com/hazzard993/love-typescript-definitions#readme",
   "devDependencies": {
-    "tslint": "^5.12.1",
-    "typescript-to-lua": "^0.14.0"
+    "types-lua": "github:ark120202/types-lua",
+    "typescript-to-lua": "^0.15.2"
   },
   "keywords": [
     "typescripttolua",
@@ -29,5 +25,6 @@
     "lua",
     "typescript",
     "definitions"
-  ]
+  ],
+  "dependencies": {}
 }

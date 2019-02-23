@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "rootDir": "test",
+        "noLib": true,
+        "types": ["types-lua/jit"]
+    }
+}
