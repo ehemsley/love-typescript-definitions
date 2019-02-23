@@ -946,7 +946,7 @@ declare interface Font extends Object {
 	 * @return {table} wrappedtext, A sequence containing each line of text that was wrapped.
 	 */
 	/** @TupleReturn */
-	getWrap(text: string, wraplimit: number): [number, table];
+	getWrap(text: string, wraplimit: number): [number, object];
 
 	/**
 	 * Gets whether the font can render a particular character.
@@ -1094,7 +1094,7 @@ declare interface Mesh extends Drawable {
 	 * 
 	 * @return {table} format, The vertex format of the Mesh, which is a table containing tables for each vertex attribute the Mesh was created with, in the form of {attribute, ...}.
 	 */
-	getVertexFormat(): table;
+	getVertexFormat(): object;
 
 	/**
 	 * Gets the vertex map for the Mesh. The vertex map describes the order in which
@@ -1109,7 +1109,7 @@ declare interface Mesh extends Drawable {
 	 * 
 	 * @return {table} map, A table containing a list of vertex indices used when drawing.
 	 */
-	getVertexMap(): table;
+	getVertexMap(): object;
 
 	/**
 	 * Gets whether a specific vertex attribute in the Mesh is enabled. Vertex data
@@ -1204,7 +1204,7 @@ declare interface Mesh extends Drawable {
 	 * @param index The index of the the vertex you want to modify.
 	 * @param vertex A table with vertex information, in the form of {attributecomponent, ...}.
 	 */
-	setVertex(index: number, vertex: table): void;
+	setVertex(index: number, vertex: object): void;
 
 	/**
 	 * Sets the properties of a vertex in the Mesh.
@@ -1227,7 +1227,7 @@ declare interface Mesh extends Drawable {
 	 * @param index The index of the the vertex you want to modify.
 	 * @param vertex A table with vertex information.
 	 */
-	setVertex(index: number, vertex: table): void;
+	setVertex(index: number, vertex: object): void;
 
 	/**
 	 * Sets the properties of a specific attribute within a vertex in the Mesh.
@@ -1258,7 +1258,7 @@ declare interface Mesh extends Drawable {
 	 * 
 	 * @param map A table containing a list of vertex indices to use when drawing. Values must be in the range of [1, Mesh:getVertexCount()].
 	 */
-	setVertexMap(map: table): void;
+	setVertexMap(map: object): void;
 
 	/**
 	 * Sets the vertex map for the Mesh. The vertex map describes the order in which
@@ -1283,7 +1283,7 @@ declare interface Mesh extends Drawable {
 	 * 
 	 * @param vertices The table filled with vertex information tables for each vertex, in the form of {vertex, ...} where each vertex is a table in the form of {attributecomponent, ...}.
 	 */
-	setVertices(vertices: table): void;
+	setVertices(vertices: object): void;
 
 	/**
 	 * Replaces a range of vertices in the Mesh with new ones. The total number of
@@ -1291,7 +1291,7 @@ declare interface Mesh extends Drawable {
 	 * 
 	 * @param vertices The table filled with vertex information tables for each vertex as follows:
 	 */
-	setVertices(vertices: table): void;
+	setVertices(vertices: object): void;
 
 }
 declare interface Image extends Texture {
@@ -1342,7 +1342,7 @@ declare interface Image extends Texture {
 	 * 
 	 * @return {table} flags, A table with ImageFlag keys.
 	 */
-	getFlags(): table;
+	getFlags(): object;
 
 	/**
 	 * Gets the height of the Image.
@@ -1612,7 +1612,7 @@ declare interface ParticleSystem extends Drawable {
 	 * 
 	 * @return {table} quads, A table containing the Quads used.
 	 */
-	getQuads(): table;
+	getQuads(): object;
 
 	/**
 	 * Gets the position of the emitter.
@@ -1901,7 +1901,7 @@ declare interface ParticleSystem extends Drawable {
 	 * 
 	 * @param quads A table containing the Quads to use.
 	 */
-	setQuads(quads: table): void;
+	setQuads(quads: object): void;
 
 	/**
 	 * Set the radial acceleration (away from the emitter).
@@ -2101,7 +2101,7 @@ declare interface Shader extends Object {
 	 * @param vector Numbers to send to the uniform variable as a vector. The number of elements in the table determines the type of the vector (e.g. two numbers -> vec2). At least two and at most four numbers can be used.
 	 * @param ... Additional vectors to send if the uniform variable is an array. All vectors need to be of the same size (e.g. only vec3's).
 	 */
-	send(name: string, vector: table, ...vararg: table[]): void;
+	send(name: string, vector: object, ...vararg: object[]): void;
 
 	/**
 	 * Sends one or more values to a special (uniform) variable inside the shader.
@@ -2111,7 +2111,7 @@ declare interface Shader extends Object {
 	 * @param matrix 2x2, 3x3, or 4x4 matrix to send to the uniform variable. Using table form: {{a,b,c,d}, {e,f,g,h}, ... }.
 	 * @param ... Additional matrices of the same type as matrix to store in a uniform array.
 	 */
-	send(name: string, matrix: table, ...vararg: table[]): void;
+	send(name: string, matrix: object, ...vararg: object[]): void;
 
 	/**
 	 * Sends one or more values to a special (uniform) variable inside the shader.
@@ -2142,7 +2142,7 @@ declare interface Shader extends Object {
 	 * @param color A table with red, green, blue, and optional alpha color components in the range of [0, 255] to send to the extern as a vector.
 	 * @param ... Additional colors to send in case the extern is an array. All colors need to be of the same size (e.g. only vec3's).
 	 */
-	sendColor(name: string, color: table, ...vararg: table[]): void;
+	sendColor(name: string, color: object, ...vararg: object[]): void;
 
 }
 declare interface SpriteBatch extends Drawable {
@@ -2372,7 +2372,7 @@ declare interface Text extends Drawable {
 	 * @param ky Shearing / skew factor on the y-axis.
 	 * @return {number} index, An index number that can be used with Text:getWidth or Text:getHeight.
 	 */
-	add(coloredtext: table, x?: number, y?: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number): number;
+	add(coloredtext: object, x?: number, y?: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number): number;
 
 	/**
 	 * Adds additional formatted / colored text to the Text object at the specified
@@ -2412,7 +2412,7 @@ declare interface Text extends Drawable {
 	 * @param ky Shearing / skew factor on the y-axis.
 	 * @return {number} index, An index number that can be used with Text:getWidth or Text:getHeight.
 	 */
-	addf(coloredtext: table, wraplimit: number, align: AlignMode, x: number, y: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number): number;
+	addf(coloredtext: object, wraplimit: number, align: AlignMode, x: number, y: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number): number;
 
 	/**
 	 * Clears the contents of the Text object.
@@ -2488,7 +2488,7 @@ declare interface Text extends Drawable {
 	 * 
 	 * @param coloredtext A table containing colors and strings to use as the new text, in the form of { color1, string1, color2, string2, ... }.
 	 */
-	set(coloredtext: table): void;
+	set(coloredtext: object): void;
 
 	/**
 	 * Replaces the contents of the Text object with a new unformatted string.
@@ -2512,7 +2512,7 @@ declare interface Text extends Drawable {
 	 * @param wraplimit The maximum width in pixels of the text before it gets automatically wrapped to a new line.
 	 * @param align The alignment of the text.
 	 */
-	setf(coloredtext: table, wraplimit: number, align: AlignMode): void;
+	setf(coloredtext: object, wraplimit: number, align: AlignMode): void;
 
 	/**
 	 * Replaces the contents of the Text object with a new formatted string.
@@ -3143,7 +3143,7 @@ declare interface BezierCurve extends Object {
 	 * @param depth Number of recursive subdivision steps.
 	 * @return {table} coordinates, List of x,y-coordinate pairs of points on the curve.
 	 */
-	render(depth?: number): table;
+	render(depth?: number): object;
 
 	/**
 	 * Get a list of coordinates on a specific part of the curve, to be used with
@@ -3162,7 +3162,7 @@ declare interface BezierCurve extends Object {
 	 * @param depth Number of recursive subdivision steps.
 	 * @return {table} coordinates, List of x,y-coordinate pairs of points on the curve.
 	 */
-	renderSegment(startpoint: number, endpoint: number, depth?: number): table;
+	renderSegment(startpoint: number, endpoint: number, depth?: number): object;
 
 	/**
 	 * Rotate the Bézier curve by an angle.
@@ -3419,7 +3419,7 @@ declare interface Transform extends Object {
 	 * @param matrix A flat table containing the 16 matrix elements.
 	 * @return {Transform} transform, The Transform object the method was called on. Allows easily chaining Transform methods.
 	 */
-	setMatrix(layout: MatrixLayout, matrix: table): Transform;
+	setMatrix(layout: MatrixLayout, matrix: object): Transform;
 
 	/**
 	 * Directly sets the Transform's internal 4x4 transformation matrix.
@@ -3428,7 +3428,7 @@ declare interface Transform extends Object {
 	 * @param matrix A table of 4 tables, with each sub-table containing 4 matrix elements.
 	 * @return {Transform} transform, The Transform object the method was called on. Allows easily chaining Transform methods.
 	 */
-	setMatrix(layout: MatrixLayout, matrix: table): Transform;
+	setMatrix(layout: MatrixLayout, matrix: object): Transform;
 
 	/**
 	 * Resets the Transform to the specified transformation parameters.
@@ -3688,14 +3688,14 @@ declare interface Body extends Object {
 	 * 
 	 * @return {table} contacts, A list with all contacts associated with the Body.
 	 */
-	getContactList(): table;
+	getContactList(): object;
 
 	/**
 	 * Returns a table with all fixtures.
 	 * 
 	 * @return {table} fixtures, A sequence with all fixtures.
 	 */
-	getFixtureList(): table;
+	getFixtureList(): object;
 
 	/**
 	 * Returns the gravity scale factor.
@@ -3719,7 +3719,7 @@ declare interface Body extends Object {
 	 * 
 	 * @return {table} joints, A sequence with the Joints attached to the Body.
 	 */
-	getJointList(): table;
+	getJointList(): object;
 
 	/**
 	 * Gets the linear damping of the Body.
@@ -5713,7 +5713,7 @@ declare interface World extends Object {
 	 * 
 	 * @return {table} bodies, A sequence with all bodies.
 	 */
-	getBodyList(): table;
+	getBodyList(): object;
 
 	/**
 	 * Returns functions for the callbacks during the world update.
@@ -5745,7 +5745,7 @@ declare interface World extends Object {
 	 * 
 	 * @return {table} contacts, A sequence with all contacts.
 	 */
-	getContactList(): table;
+	getContactList(): object;
 
 	/**
 	 * Get the gravity of the world.
@@ -5768,7 +5768,7 @@ declare interface World extends Object {
 	 * 
 	 * @return {table} joints, A sequence with all joints.
 	 */
-	getJointList(): table;
+	getJointList(): object;
 
 	/**
 	 * Gets whether the World is destroyed. Destroyed worlds cannot be used.
@@ -6246,7 +6246,7 @@ Setting unused modules to false is encouraged when you release your game. It red
 
 Note that you can't disable love.filesystem; it's mandatory. The same goes for the love module itself. love.graphics needs love.window to be enabled.
 	 */
-	export let conf: (t: table) => void;
+	export let conf: (t: object) => void;
 
 	/**
 	 * Callback function triggered when a directory is dragged and dropped onto the
@@ -6382,7 +6382,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 	 * 
 	 * @param arg Command line arguments given to the game.
 	 */
-	export let load: (arg: table) => void;
+	export let load: (arg: object) => void;
 
 	/**
 	 * Callback function triggered when the system is running out of memory on mobile
@@ -6944,7 +6944,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param dir The directory.
 		 * @return {table} items, A sequence with the names of all files and subdirectories as strings.
 		 */
-		export function getDirectoryItems(dir: string): table;
+		export function getDirectoryItems(dir: string): object;
 
 		/**
 		 * Gets the write directory name for your game. Note that this only returns the
@@ -6960,7 +6960,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param path The file or directory path to check.
 		 * @return {table} info, A table containing information about the specified path, or nil if nothing exists at the path. The table contains the following fields:
 		 */
-		export function getInfo(path: string): table;
+		export function getInfo(path: string): object;
 
 		/**
 		 * Gets information about the specified file or directory.
@@ -6969,7 +6969,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param info A table which will be filled in with info about the specified path.
 		 * @return {table} info, A table containing information about the specified path, or nil if nothing exists at the path. The table contains the following fields:
 		 */
-		export function getInfo(path: string, info: table): table;
+		export function getInfo(path: string, info: object): object;
 
 		/**
 		 * Gets the platform-specific absolute path of the directory containing a
@@ -7438,7 +7438,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param color A table in the form of {r, g, b, a} containing the color to clear the first active Canvas to.
 		 * @param ... Additional tables for each active Canvas.
 		 */
-		export function clear(color: table, ...vararg: table[]): void;
+		export function clear(color: object, ...vararg: object[]): void;
 
 		/**
 		 * Discards (trashes) the contents of the screen or active Canvas. This is a
@@ -7474,7 +7474,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param discardcolors An array containing boolean values indicating whether to discard the texture of each active Canvas, when multiple simultaneous Canvases are active.
 		 * @param discardstencil Whether to discard the contents of the stencil buffer of the screen / active Canvas.
 		 */
-		export function discard(discardcolors: table, discardstencil?: boolean): void;
+		export function discard(discardcolors: object, discardstencil?: boolean): void;
 
 		/**
 		 * Draws a Drawable object (an Image, Canvas, SpriteBatch, ParticleSystem, Mesh,
@@ -7730,7 +7730,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @return {table} formats, A table containing CanvasFormats as keys, and a boolean indicating whether the format is supported as values. Not all systems support all formats.
 		 */
-		export function getCanvasFormats(): table;
+		export function getCanvasFormats(): object;
 
 		/**
 		 * Gets the current color.
@@ -7765,7 +7765,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @return {table} formats, A table containing CompressedFormats as keys, and a boolean indicating whether the format is supported as values. Not all systems support all formats.
 		 */
-		export function getCompressedImageFormats(): table;
+		export function getCompressedImageFormats(): object;
 
 		/**
 		 * Returns the default scaling filters used with Images, Canvases, and Fonts.
@@ -7881,7 +7881,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @return {table} stats, A table with the following fields:
 		 */
-		export function getStats(): table;
+		export function getStats(): object;
 
 		/**
 		 * Gets whether stencil testing is enabled.
@@ -7909,14 +7909,14 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @return {table} features, A table containing GraphicsFeature keys, and boolean values indicating whether each feature is supported.
 		 */
-		export function getSupported(): table;
+		export function getSupported(): object;
 
 		/**
 		 * Gets the system-dependent maximum values for love.graphics features.
 		 * 
 		 * @return {table} limits, A table containing GraphicsLimit keys, and number values.
 		 */
-		export function getSystemLimits(): table;
+		export function getSystemLimits(): object;
 
 		/**
 		 * Gets the point size.
@@ -7952,7 +7952,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @return {table} texturetypes, A table containing TextureTypes as keys, and a boolean indicating whether the type is supported as values. Not all systems support all types.
 		 */
-		export function getTextureTypes(): table;
+		export function getTextureTypes(): object;
 
 		/**
 		 * Gets the width of the window.
@@ -8050,7 +8050,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @param points A table of point positions.
 		 */
-		export function line(points: table): void;
+		export function line(points: object): void;
 
 		/**
 		 * Creates a new Canvas object for offscreen rendering.
@@ -8139,7 +8139,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param usage The expected usage of the Mesh. The specified usage mode affects the Mesh's memory usage and performance.
 		 * @return {Mesh} mesh, The new Mesh.
 		 */
-		export function newMesh(vertices: table, mode?: MeshDrawMode, usage?: SpriteBatchUsage): Mesh;
+		export function newMesh(vertices: object, mode?: MeshDrawMode, usage?: SpriteBatchUsage): Mesh;
 
 		/**
 		 * Creates a new Mesh.
@@ -8168,7 +8168,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param usage The expected usage of the Mesh. The specified usage mode affects the Mesh's memory usage and performance.
 		 * @return {Mesh} mesh, The new Mesh.
 		 */
-		export function newMesh(vertexformat: table, vertices: table, mode?: MeshDrawMode, usage?: SpriteBatchUsage): Mesh;
+		export function newMesh(vertexformat: object, vertices: object, mode?: MeshDrawMode, usage?: SpriteBatchUsage): Mesh;
 
 		/**
 		 * Creates a new Mesh.
@@ -8183,7 +8183,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param usage The expected usage of the Mesh. The specified usage mode affects the Mesh's memory usage and performance.
 		 * @return {Mesh} mesh, The new Mesh.
 		 */
-		export function newMesh(vertexformat: table, vertexcount: number, mode?: MeshDrawMode, usage?: SpriteBatchUsage): Mesh;
+		export function newMesh(vertexformat: object, vertexcount: number, mode?: MeshDrawMode, usage?: SpriteBatchUsage): Mesh;
 
 		/**
 		 * Creates a new Image from a filepath, FileData, an ImageData, or a
@@ -8224,7 +8224,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param flags A table containing the following fields:
 		 * @return {Image} image, An Image object which can be drawn on screen.
 		 */
-		export function newImage(filename: string, flags: table): Image;
+		export function newImage(filename: string, flags: object): Image;
 
 		/**
 		 * Creates a new Font by loading a specifically formatted image.
@@ -8398,14 +8398,14 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @param points A table containing multiple point positions, in the form of {x, y, ...}.
 		 */
-		export function points(points: table): void;
+		export function points(points: object): void;
 
 		/**
 		 * Draws one or more points.
 		 * 
 		 * @param points A table containing multiple individually colored points, in the form of {point, ...}. Each table contains the position and color of a point in the form of {x, y, r, g, b, a}. The color components are optional.
 		 */
-		export function points(points: table): void;
+		export function points(points: object): void;
 
 		/**
 		 * Draw a polygon.
@@ -8439,7 +8439,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param mode How to draw the polygon.
 		 * @param vertices The vertices of the polygon as a table.
 		 */
-		export function polygon(mode: DrawMode, vertices: table): void;
+		export function polygon(mode: DrawMode, vertices: object): void;
 
 		/**
 		 * Pops the current coordinate transformation from the transformation stack.
@@ -8515,7 +8515,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param kx Shearing / skew factor on the x-axis.
 		 * @param ky Shearing / skew factor on the y-axis.
 		 */
-		export function print(coloredtext: table, x: number, y: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number): void;
+		export function print(coloredtext: object, x: number, y: number, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number): void;
 
 		/**
 		 * Draws formatted text, with word wrap and alignment.
@@ -8573,7 +8573,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param kx Shearing / skew factor on the x-axis.
 		 * @param ky Shearing / skew factor on the y-axis.
 		 */
-		export function printf(coloredtext: table, x: number, y: number, wraplimit: number, align: AlignMode, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number): void;
+		export function printf(coloredtext: object, x: number, y: number, wraplimit: number, align: AlignMode, angle?: number, sx?: number, sy?: number, ox?: number, oy?: number, kx?: number, ky?: number): void;
 
 		/**
 		 * Copies and pushes the current coordinate transformation to the transformation
@@ -8691,7 +8691,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @param rgba A numerical indexed table with the red, green and blue values as numbers. Alpha is 255 if it is not in the table
 		 */
-		export function setBackgroundColor(rgba: table): void;
+		export function setBackgroundColor(rgba: object): void;
 
 		/**
 		 * Sets the blending mode.
@@ -8745,7 +8745,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @param rgba A numerical indexed table with the red, green, blue and alpha values as numbers. The alpha is optional and defaults to 255 if it is left out.
 		 */
-		export function setColor(rgba: table): void;
+		export function setColor(rgba: object): void;
 
 		/**
 		 * Sets the color mask. Enables or disables specific color components when
@@ -9175,7 +9175,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @return {table} joysticks, The list of currently connected Joysticks.
 		 */
-		export function getJoysticks(): table;
+		export function getJoysticks(): object;
 
 		/**
 		 * Loads a gamepad mappings string or file created with
@@ -9461,7 +9461,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @return {number} lb, The blue channel of the converted color in linear RGB space.
 		 */
 		/** @TupleReturn */
-		export function gammaToLinear(color: table): [number, number, number];
+		export function gammaToLinear(color: object): [number, number, number];
 
 		/**
 		 * Converts a color from gamma-space (sRGB) to linear-space (RGB). This is useful
@@ -9513,7 +9513,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param vertices The vertices of the polygon as a table in the form of {x1, y1, x2, y2, x3, y3, ...}.
 		 * @return {boolean} convex, Whether the given polygon is convex.
 		 */
-		export function isConvex(vertices: table): boolean;
+		export function isConvex(vertices: object): boolean;
 
 		/**
 		 * Checks whether a polygon is convex.
@@ -9571,7 +9571,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @return {number} cb, The blue channel of the converted color in gamma sRGB space.
 		 */
 		/** @TupleReturn */
-		export function linearToGamma(color: table): [number, number, number];
+		export function linearToGamma(color: object): [number, number, number];
 
 		/**
 		 * Converts a color from linear-space (RGB) to gamma-space (sRGB). This is useful
@@ -9600,7 +9600,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param vertices The vertices of the control polygon as a table in the form of {x1, y1, x2, y2, x3, y3, ...}.
 		 * @return {BezierCurve} curve, A Bézier curve object.
 		 */
-		export function newBezierCurve(vertices: table): BezierCurve;
+		export function newBezierCurve(vertices: object): BezierCurve;
 
 		/**
 		 * Creates a new BezierCurve object.
@@ -9814,7 +9814,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param polygon Polygon to triangulate. Must not intersect itself.
 		 * @return {table} triangles, List of triangles the polygon is composed of, in the form of {{x1, y1, x2, y2, x3, y3}, {x1, y1, x2, y2, x3, y3}, ...}.
 		 */
-		export function triangulate(polygon: table): table;
+		export function triangulate(polygon: object): object;
 
 		/**
 		 * Triangulate a simple polygon.
@@ -9828,7 +9828,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param ... Additional vertices.
 		 * @return {table} triangles, List of triangles the polygon is composed of, in the form of {{x1, y1, x2, y2, x3, y3}, {x1, y1, x2, y2, x3, y3}, ...}.
 		 */
-		export function triangulate(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, ...vararg: number[]): table;
+		export function triangulate(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number, ...vararg: number[]): object;
 
 	}
 	/**
@@ -10162,7 +10162,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param points A list of points to construct the ChainShape, in the form of {x1, y1, x2, y2, ...}.
 		 * @return {ChainShape} shape, The new shape.
 		 */
-		export function newChainShape(loop: boolean, points: table): ChainShape;
+		export function newChainShape(loop: boolean, points: object): ChainShape;
 
 		/**
 		 * Creates a new CircleShape.
@@ -10338,7 +10338,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * @param vertices A list of vertices to construct the polygon, in the form of {x1, y1, x2, y2, x3, y3, ...}.
 		 * @return {PolygonShape} shape, A new PolygonShape.
 		 */
-		export function newPolygonShape(vertices: table): PolygonShape;
+		export function newPolygonShape(vertices: object): PolygonShape;
 
 		/**
 		 * Create a prismatic joints between two bodies.
@@ -10907,7 +10907,7 @@ To open a file or folder, "file://" must be prepended to the path.
 		 * 
 		 * @return {table} touches, A list of active touch-press id values, which can be used with love.touch.getPosition.
 		 */
-		export function getTouches(): table;
+		export function getTouches(): object;
 
 	}
 	/**
@@ -11052,7 +11052,7 @@ To open a file or folder, "file://" must be prepended to the path.
 		 * @param display The index of the display, if multiple monitors are available.
 		 * @return {table} modes, A table of width/height pairs. (Note that this may not be in order.)
 		 */
-		export function getFullscreenModes(display?: number): table;
+		export function getFullscreenModes(display?: number): object;
 
 		/**
 		 * Gets the window icon.
@@ -11069,7 +11069,7 @@ To open a file or folder, "file://" must be prepended to the path.
 		 * @return {table} flags, Table containing the window properties.
 		 */
 		/** @TupleReturn */
-		export function getMode(): [number, number, table];
+		export function getMode(): [number, number, object];
 
 		/**
 		 * Gets the DPI scale factor associated with the window.
@@ -11284,7 +11284,7 @@ To open a file or folder, "file://" must be prepended to the path.
 		 * @param flags The flags table with the options:
 		 * @return {boolean} success, True if successful, false otherwise.
 		 */
-		export function setMode(width: number, height: number, flags: table): boolean;
+		export function setMode(width: number, height: number, flags: object): boolean;
 
 		/**
 		 * Sets the position of the window on the screen.
@@ -11328,7 +11328,7 @@ To open a file or folder, "file://" must be prepended to the path.
 		 * @param attachtowindow Whether the message box should be attached to the love window or free-floating.
 		 * @return {number} pressedbutton, The index of the button pressed by the user. May be 0 if the message box dialog was closed without pressing a button.
 		 */
-		export function showMessageBox(title: string, message: string, buttonlist: table, type?: MessageBoxType, attachtowindow?: boolean): number;
+		export function showMessageBox(title: string, message: string, buttonlist: object, type?: MessageBoxType, attachtowindow?: boolean): number;
 
 		/**
 		 * Converts a number from density-independent units to pixels.
@@ -11403,7 +11403,7 @@ To open a file or folder, "file://" must be prepended to the path.
 		 * @param settings The settings table with the following optional fields. Any field not filled in will use the current value that would be returned by love.window.getMode.
 		 * @return {boolean} success, True if successful, false otherwise.
 		 */
-		export function updateMode(width: number, height: number, settings: table): boolean;
+		export function updateMode(width: number, height: number, settings: object): boolean;
 
 	}
 }
