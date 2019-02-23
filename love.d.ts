@@ -2563,9 +2563,9 @@ declare interface Texture extends Drawable {
 	/**
 	 * Gets the type of the Texture.
 	 * 
-	 * @return {TextureType} texturetype, The type of the Texture.
+	 * @return {"2d" | "array" | "cube" | "volume"} texturetype, The type of the Texture.
 	 */
-	getTextureType(): TextureType;
+	getTextureType(): "2d" | "array" | "cube" | "volume";
 
 	/**
 	 * Gets whether the Texture can be drawn and sent to a Shader.
@@ -6144,9 +6144,9 @@ interface Data {
 	/**
 	 * Gets a pointer to the Data.
 	 * 
-	 * @return {LightUserData} pointer, A raw pointer to the Data.
+	 * @return {number} pointer, A raw pointer to the Data.
 	 */
-	getPointer(): LightUserData;
+	getPointer(): number;
 
 	/**
 	 * Gets the size of the Data.
@@ -6506,7 +6506,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 	 * @param dy The y-axis movement of the touch inside the window, in pixels.
 	 * @param pressure The amount of pressure being applied. Most touch screens aren't pressure sensitive, in which case the pressure will be 1.
 	 */
-	export let touchmoved: (id: LightUserData, x: number, y: number, dx: number, dy: number, pressure: number) => void;
+	export let touchmoved: (id: number, x: number, y: number, dx: number, dy: number, pressure: number) => void;
 
 	/**
 	 * Callback function triggered when the touch screen is touched.
@@ -6518,7 +6518,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 	 * @param dy The y-axis movement of the touch press inside the window, in pixels. This should always be zero.
 	 * @param pressure The amount of pressure being applied. Most touch screens aren't pressure sensitive, in which case the pressure will be 1.
 	 */
-	export let touchpressed: (id: LightUserData, x: number, y: number, dx: number, dy: number, pressure: number) => void;
+	export let touchpressed: (id: number, x: number, y: number, dx: number, dy: number, pressure: number) => void;
 
 	/**
 	 * Callback function triggered when the touch screen stops being touched.
@@ -6530,7 +6530,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 	 * @param dy The y-axis movement of the touch inside the window, in pixels.
 	 * @param pressure The amount of pressure being applied. Most touch screens aren't pressure sensitive, in which case the pressure will be 1.
 	 */
-	export let touchreleased: (id: LightUserData, x: number, y: number, dx: number, dy: number, pressure: number) => void;
+	export let touchreleased: (id: number, x: number, y: number, dx: number, dy: number, pressure: number) => void;
 
 	/**
 	 * Callback function used to update the state of the game every frame.
@@ -6858,7 +6858,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @param "restart" Restarts the game without relaunching the executable. This cleanly shuts down the main Lua state instance and creates a brand new one.
 		 */
-		export function quit(restartstr: RestartString): void;
+		export function quit(restartstr: "restart"): void;
 
 		/**
 		 * Like love.event.poll but blocks until there is an event in the queue.
@@ -7817,9 +7817,9 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * love.graphics shapes, lines, and sprites are not guaranteed to have a specific
 		 * winding order to their internal vertices.
 		 * 
-		 * @return {VertexWinding} winding, The winding mode to use. The default winding is counterclockwise ("ccw").
+		 * @return {"cw" | "ccw"} winding, The winding mode to use. The default winding is counterclockwise ("ccw").
 		 */
-		export function getFrontFaceWinding(): VertexWinding;
+		export function getFrontFaceWinding(): "cw" | "ccw";
 
 		/**
 		 * Gets the height of the window.
@@ -7857,9 +7857,9 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * hardware-accelerated 3D rendering via custom vertex attributes on Meshes,
 		 * custom vertex shaders, and depth testing with a depth buffer.
 		 * 
-		 * @return {CullMode} mode, The Mesh face culling mode in use (whether to render everything, cull back-facing triangles, or cull front-facing triangles).
+		 * @return {"back" | "front" | "none"} mode, The Mesh face culling mode in use (whether to render everything, cull back-facing triangles, or cull front-facing triangles).
 		 */
-		export function getMeshCullMode(): CullMode;
+		export function getMeshCullMode(): "back" | "front" | "none";
 
 		/**
 		 * Returns the current Shader. Returns nil if none is set.
@@ -8821,7 +8821,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @param winding The winding mode to use. The default winding is counterclockwise ("ccw").
 		 */
-		export function setFrontFaceWinding(winding: VertexWinding): void;
+		export function setFrontFaceWinding(winding: "cw" | "ccw"): void;
 
 		/**
 		 * Sets the line join style.
@@ -8854,7 +8854,7 @@ Note that you can't disable love.filesystem; it's mandatory. The same goes for t
 		 * 
 		 * @param mode The Mesh face culling mode to use (whether to render everything, cull back-facing triangles, or cull front-facing triangles).
 		 */
-		export function setMeshCullMode(mode: CullMode): void;
+		export function setMeshCullMode(mode: "back" | "front" | "none"): void;
 
 		/**
 		 * Creates and sets a new font.
@@ -10892,7 +10892,7 @@ To open a file or folder, "file://" must be prepended to the path.
 		 * @return {number} y, The position along the y-axis of the touch-press inside the window, in pixels.
 		 */
 		/** @TupleReturn */
-		export function getPosition(id: LightUserData): [number, number];
+		export function getPosition(id: number): [number, number];
 
 		/**
 		 * Gets the current pressure of the specified touch-press.
@@ -10900,7 +10900,7 @@ To open a file or folder, "file://" must be prepended to the path.
 		 * @param id The identifier of the touch-press. Use love.touch.getTouches, love.touchpressed, or love.touchmoved to obtain touch id values.
 		 * @return {number} pressure, The pressure of the touch-press. Most touch screens aren't pressure sensitive, in which case the pressure will be 1.
 		 */
-		export function getPressure(id: LightUserData): number;
+		export function getPressure(id: number): number;
 
 		/**
 		 * Gets a list of all active touch-presses.
